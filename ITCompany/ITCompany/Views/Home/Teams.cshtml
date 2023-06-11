@@ -1,0 +1,39 @@
+﻿
+@{
+    ViewBag.Title = "Teams";
+}
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+        <a class="navbar-brand text-primary" href="/Home/Index">ANONYMOUS</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-link " href="/Home/Index">Home</a>
+                <a class="nav-link "  href="/Home/Services">Services</a>
+                <a class="nav-link active" aria-current="page" href="/Home/Teams">Teams & member</a>
+                <a class="nav-link" href="/Home/Contact">Contact</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<h2>Teams</h2>
+<ul>
+    @foreach (var item in Model)
+    {
+        <li>
+            <b> @item.Name</b>
+            <ul>
+                <li>
+                    @item.Position
+                </li>
+                <li>
+                    @item.Email
+                </li>
+            </ul>
+        </li>
+    }
+</ul>
+
