@@ -39,5 +39,9 @@ namespace FormSubmission.Controllers
             }
             return View(u);
         }
+        public ActionResult index()
+        {
+            return View();
+        }
     }
 }

@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Zerohunger.Models;
+using Zerohunger.Repository;
 
 namespace Zerohunger.Controllers
 {
@@ -10,21 +12,61 @@ namespace Zerohunger.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            return RedirectToAction("AddUser");
         }
 
-        public ActionResult About()
+        UserRepo repo;
+
+        public HomeController()
         {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
+            this.repo = new UserRepo();
         }
+        // GET: User
 
-        public ActionResult Contact()
+        public ActionResult AddUser()
         {
-            ViewBag.Message = "Your contact page.";
+            var data = repo.GetType();
+            ViewBag.typeData = data;
+            return View();
+        }
+        [HttpPost]
+        public ActionResult AddUser(UserModel user)
+        {
+            var data = repo.GetType();
+            ViewBag.typeData = data;
+            if (ModelState.IsValid)
+            {
+                var result = repo.AddUser(user);
+                return RedirectToAction("Login");
+            }
 
             return View();
         }
-    }
+        public ActionResult LogIn()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult LogIn(UserModel user)
+        {
+            if (ModelState.IsValid)
+            {
+                var result = repo.LoginUser(user);
+                if (result == 1)
+                {
+                    return RedirectToAction("Home", "Employees");
+                }
+                else
+                {
+                    return RedirectToAction("Home", "Restaurants");
+
+                    
+                }
+
+            }
+            return View();
+        }
+
+    } // GET: User
+   
 }

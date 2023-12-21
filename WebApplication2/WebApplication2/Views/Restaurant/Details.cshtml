@@ -1,0 +1,62 @@
+﻿@model WebApplication2.Models.CollectionRequestModel
+
+@{
+    ViewBag.Title = "Details";
+}
+<ul class="nav nav-tabs bg-success justify-content-center">
+
+    <li class="nav-item">
+        <a class="nav-link active" aria-current="page" href="/Restaurant/RestaurantList">Restaurant List</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="/Restaurant/CollectionRequestList">Collection Request</a>
+    </li>
+
+    <li>
+        <a href="~/User/AddUser">Log Out</a>
+    </li>
+</ul>
+<h2>Details</h2>
+
+<div>
+    
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.RestaurantId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RestaurantId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PreservationTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PreservationTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CollectionDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CollectionDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CollectionStatus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CollectionStatus)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,60 @@
+﻿@model IEnumerable<WebApplication2.Models.CollectionRequestModel>
+
+@{
+    ViewBag.Title = "CollectionRequestList";
+}
+<h2 class="text-center text-primary">Employee</h2>
+
+<ul class="nav nav-tabs bg-success justify-content-center">
+
+    <li class="nav-item">
+        <a class="nav-link active" aria-current="page" href="/Employee/RestaurantList">Restaurant List</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="/Employee/CollectionRequestList">Collection Request</a>
+    </li>
+
+    <li>
+        <a href="~/User/AddUser">Log Out</a>
+    </li>
+</ul>
+<h2>Collection Request List</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.RestaurantId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PreservationTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CollectionDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CollectionStatus)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.RestaurantId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PreservationTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CollectionDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CollectionStatus)
+            </td>
+            <td> @Html.ActionLink("Accept", "Deletes", new { id = item.Id })</td>
+        </tr>
+    }
+
+</table>

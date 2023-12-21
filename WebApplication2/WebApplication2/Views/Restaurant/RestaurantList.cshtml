@@ -1,0 +1,51 @@
+﻿@model IEnumerable<WebApplication2.Models.RestaurantModel>
+
+@{
+    ViewBag.Title = "RestaurantList";
+}
+<ul class="nav nav-tabs bg-success justify-content-center">
+
+    <li class="nav-item">
+        <a class="nav-link active" aria-current="page" href="/Restaurant/RestaurantList">Restaurant List</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="/Restaurant/CollectionRequestList">Collection Request</a>
+    </li>
+
+    <li>
+        <a href="~/User/AddUser">Log Out</a>
+    </li>
+</ul>
+<h2>Restaurant List</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Address)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Contact)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Address)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Contact)
+        </td>
+       
+    </tr>
+}
+
+</table>
